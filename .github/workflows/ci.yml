@@ -26,7 +26,7 @@ jobs:
         working-directory: services/solver
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
         with:
           version: "0.8.22"
       - run: uv sync --locked
