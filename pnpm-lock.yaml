@@ -11,6 +11,18 @@ importers:
       '@eslint/js':
         specifier: ^9.36.0
         version: 9.39.5
+      '@foe/config':
+        specifier: workspace:*
+        version: link:packages/config
+      '@foe/contracts':
+        specifier: workspace:*
+        version: link:packages/contracts
+      '@foe/domain':
+        specifier: workspace:*
+        version: link:packages/domain
+      '@foe/testing':
+        specifier: workspace:*
+        version: link:packages/testing
       '@types/node':
         specifier: ^24.0.0
         version: 24.13.6
