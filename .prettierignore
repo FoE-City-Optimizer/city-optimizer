@@ -1,0 +1,10 @@
+pnpm-lock.yaml
+dist/
+coverage/
+.venv/
+.tools/
+services/solver/uv.lock
+services/solver/.venv/
+bootstrap/
+docs/project/project-charter.md
+docs/research/initial-research-notes.md

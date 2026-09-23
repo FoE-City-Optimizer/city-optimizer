@@ -1,0 +1,3 @@
+# Data flow and privacy
+
+The future extension should extract only map geometry, building identity/footprint/road requirement, and current roads needed for planning. A narrow adapter must reject unknown critical schema changes rather than invent defaults. It must never collect cookies, session tokens, credentials, raw request headers, chat/social data, or full-session network dumps. A versioned snapshot crosses into an untrusted API boundary, where size and schema validation are required. Avoid raw snapshots in ordinary logs. HTTPS, quotas, resource limits, and a threat model are required before public beta. No collection or upload exists in the bootstrap shell.

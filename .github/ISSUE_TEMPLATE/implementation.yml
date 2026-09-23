@@ -1,0 +1,82 @@
+name: Implementation task
+description: Bounded work ready after refinement
+title: "[Task] "
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+    validations:
+      required: true
+  - type: textarea
+    id: in_scope
+    attributes:
+      label: In Scope
+    validations:
+      required: true
+  - type: textarea
+    id: out_scope
+    attributes:
+      label: Out of Scope
+    validations:
+      required: true
+  - type: textarea
+    id: functional
+    attributes:
+      label: Functional Requirements
+    validations:
+      required: true
+  - type: textarea
+    id: technical
+    attributes:
+      label: Technical Constraints
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Required Tests
+    validations:
+      required: true
+  - type: textarea
+    id: docs
+    attributes:
+      label: Documentation Impact
+    validations:
+      required: true
+  - type: textarea
+    id: security
+    attributes:
+      label: Security/Privacy Impact
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+    validations:
+      required: true
