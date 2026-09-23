@@ -6,5 +6,16 @@ export default tseslint.config(
   { ignores: ["**/dist/**"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  { languageOptions: { globals: globals.browser } },
+  {
+    files: ["apps/extension/**/*.ts", "apps/web/**/*.ts"],
+    languageOptions: { globals: globals.browser },
+  },
+  {
+    files: ["apps/api/**/*.ts"],
+    languageOptions: { globals: globals.node },
+  },
+  {
+    files: ["apps/api/**/*.ts", "packages/**/*.ts"],
+    rules: { "no-undef": "error" },
+  },
 );
