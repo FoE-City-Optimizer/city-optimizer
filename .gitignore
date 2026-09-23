@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.venv/
+.tools/
+.pnpm-store/
+.issue-drafts/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.pyc
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+!.gitkeep

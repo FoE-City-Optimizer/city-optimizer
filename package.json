@@ -1,0 +1,29 @@
+{
+  "name": "foe-city-optimizer",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@11.24.0",
+  "scripts": {
+    "format": "prettier --write \"{apps,packages,docs,bootstrap,.github,tests}/**/*.{md,json,yml,ts,mjs}\" \"*.{md,json,yaml,yml,mjs}\"",
+    "format:check": "prettier --check \"{apps,packages,docs,bootstrap,.github,tests}/**/*.{md,json,yml,ts,mjs}\" \"*.{md,json,yaml,yml,mjs}\"",
+    "lint": "eslint apps packages",
+    "typecheck": "tsc -b",
+    "test": "node tests/smoke.test.mjs",
+    "docs:links": "node tests/check-doc-links.mjs",
+    "build": "tsc -b",
+    "check": "pnpm format:check && pnpm docs:links && pnpm lint && pnpm typecheck && pnpm build && pnpm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/node": "^24.0.0",
+    "@foe/config": "workspace:*",
+    "@foe/contracts": "workspace:*",
+    "@foe/domain": "workspace:*",
+    "@foe/testing": "workspace:*",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.0"
+  }
+}

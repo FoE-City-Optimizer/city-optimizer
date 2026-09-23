@@ -1,0 +1,23 @@
+name: Bug
+description: Unexpected behavior with reproduction evidence
+title: "[Bug] "
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction and environment
+      description: Exclude credentials and raw game/session payloads.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact, tests, and security/privacy considerations
+    validations:
+      required: true

@@ -1,0 +1,23 @@
+name: Epic
+description: Outcome-level work with child issues
+title: "[Epic] "
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome and context
+      description: Describe the user or engineering outcome, not a feature checklist.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Scope and non-goals
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Exit evidence and dependencies
+    validations:
+      required: true

@@ -1,0 +1,26 @@
+name: Research or spike
+description: Evidence gathering before design or implementation
+title: "[Research] "
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question and context
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Method and constraints
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Required evidence and exit criteria
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Security and privacy impact
