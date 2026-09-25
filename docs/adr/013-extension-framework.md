@@ -13,4 +13,3 @@ Compare raw WebExtensions with a framework for the verified Google Chrome path, 
 ## Consequences and next evidence
 
 Keep implementation within this scope. Any unspecified framework, schema detail, or operational choice requires evidence and a scoped Issue before acceptance. See the [charter](../project/project-charter.md).
-
