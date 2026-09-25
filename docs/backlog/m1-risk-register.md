@@ -17,4 +17,3 @@
 | Canonical model overfits one observed city                                    | High       | High   | Include variant coverage and explicit unsupported cases; review schema against source inventory before v1 acceptance          | Second city/build cannot be represented without raw fields    | Contracts & Domain       |
 | Integration accidentally depends on FoE Helper internals                      | Medium     | Medium | Independent observation and own field map; no copied implementation or broad export as primary path                           | Design cites Helper behavior without live confirmation        | Architecture / Research  |
 | Game updates break collector silently                                         | High       | High   | Source-version diagnostics, schema drift assertions, fail-closed adapter behavior                                             | Fixture or live source mismatch after update                  | Extension / Verification |
-
