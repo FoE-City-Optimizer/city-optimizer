@@ -1056,24 +1056,24 @@ The following ADRs should be created during repository bootstrap. They may begin
 
 ## 29. Roadmap
 
-### Phase 0 - Domain and feasibility
+### Phase 0 - Domain and data feasibility (M1)
 
-Goal: prove that the project understands the city data and that exact optimization is viable on small instances.
-
-Deliverables:
-
-- one or more sanitized real-city fixtures,
-- prototype read-only collector,
-- Canonical City Snapshot schema,
-- verified domain model,
-- tiny brute-force oracle solver,
-- CP-SAT solver spike,
-- first benchmark report.
-
-### Phase 1 - Solver foundation
+Goal: verify current read-only main-city data acquisition and define a safe, project-owned city representation before production integration work. The [M1 plan](../backlog/m1-domain-data-feasibility.md) sets the evidence gates.
 
 Deliverables:
 
+- current live main-city source and browser-feasibility evidence,
+- one or more sanitized real-city fixtures and observed external schema notes,
+- Canonical City Snapshot v1 contract and cross-language validation strategy,
+- verified and explicitly unsupported domain rules,
+- privacy, fixture and production-collector prerequisite decisions.
+
+### Phase 1 - Solver foundation (M2)
+
+Deliverables:
+
+- tiny brute-force oracle solver and CP-SAT feasibility spike,
+- first benchmark report based on verified M1 constraints,
 - legal placement generation,
 - collision constraints,
 - road decision variables,
