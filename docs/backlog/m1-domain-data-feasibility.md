@@ -10,13 +10,13 @@ The merged [#3 report](../research/issue-3-main-city-data-sources.md) and [#23 r
 
 **Planning decision:** The initial extension and M1 browser feasibility gate target **Google Chrome**. Other Chromium browsers and Firefox are deferred pending separate live evidence. This follows the owner's Chrome-first request recorded in the #23 handoff; it does not change ADR-006's read-only requirement or accept proposed ADR-013's framework choice. Production collector refinement still requires a source-completeness and loss-recovery design, exact-field projection, and a design-specific Security & Privacy review.
 
-| M1 gate | Current assessment |
-| --- | --- |
-| Current source and field inventory | Partially met by #3 for one city/world and one move; build and important semantics remain unknown. |
-| Browser boundary | Narrow Chrome startup proof met by #23; complete updates, fetch/variant handling, and production trust boundary remain open. Firefox deferred. |
-| Sanitized real-city fixture and observed schema | Open; #24 is next. No raw or private response is a fixture. |
-| Domain mechanics and safe treatment | Open; #25 follows #24's sanitized case and may start with #3's gaps. |
-| Snapshot v1 and cross-language validation | Open; #26 depends on fixture and domain evidence. |
+| M1 gate                                         | Current assessment                                                                                                                             |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Current source and field inventory              | Partially met by #3 for one city/world and one move; build and important semantics remain unknown.                                             |
+| Browser boundary                                | Narrow Chrome startup proof met by #23; complete updates, fetch/variant handling, and production trust boundary remain open. Firefox deferred. |
+| Sanitized real-city fixture and observed schema | Open; #24 is next. No raw or private response is a fixture.                                                                                    |
+| Domain mechanics and safe treatment             | Open; #25 follows #24's sanitized case and may start with #3's gaps.                                                                           |
+| Snapshot v1 and cross-language validation       | Open; #26 depends on fixture and domain evidence.                                                                                              |
 
 M1 is **not complete**. The next research batch is #24 and #25. #23 remains open for its narrowed Chrome coverage and trust-boundary handoff; it should not be closed on the one-reload proof alone.
 
