@@ -13,13 +13,17 @@ Get-ChildItem Env: |
     @{Name='Offline'; Expression={$_.Name -eq 'NPM_CONFIG_OFFLINE' -and $_.Value -eq 'true'}}
 ```
 
-A proxy pointing to `127.0.0.1:9` refuses connections, and `NPM_CONFIG_OFFLINE=true` prevents downloading packages absent from the pnpm store. When those values were injected into an agent shell and direct network access is available, clear them **in that shell only**, then retry:
+A proxy pointing to `127.0.0.1:9` refuses connections, and `NPM_CONFIG_OFFLINE=true` prevents downloading packages absent from the pnpm store. In Codex's native Windows `unelevated` sandbox, these are process-level offline controls and return in each new session. First try `pnpm install --frozen-lockfile --offline` if the store already has the packages. If a network call is required, request network permission for that specific command. Only in the approved command, remove the dummy values from its process environment before retrying:
 
 ```powershell
-'HTTP_PROXY','HTTPS_PROXY','ALL_PROXY','GIT_HTTP_PROXY','GIT_HTTPS_PROXY','NPM_CONFIG_OFFLINE' |
-  ForEach-Object { Remove-Item "Env:$_" -ErrorAction SilentlyContinue }
+foreach ($name in 'HTTP_PROXY','HTTPS_PROXY','ALL_PROXY','GIT_HTTP_PROXY','GIT_HTTPS_PROXY') {
+  if ([Environment]::GetEnvironmentVariable($name) -eq 'http://127.0.0.1:9') {
+    Remove-Item "Env:$name"
+  }
+}
+if ($env:NPM_CONFIG_OFFLINE -eq 'true') { Remove-Item Env:NPM_CONFIG_OFFLINE }
 pnpm install --frozen-lockfile
-gh auth status
+gh api rate_limit
 ```
 
-Do not clear a real corporate proxy. Test `gh api rate_limit` after clearing a broken proxy; an authentication error after that test may require `gh auth refresh`.
+Use the same approved-command pattern for `gh` operations. Do not clear a real corporate proxy or change user or machine environment variables. If the approved network call still returns an authentication error, check `gh auth status` before considering `gh auth refresh`. If network permission is unavailable, report the blocked operation and continue with local checks. For a persistent Codex setup issue, consult the [Windows sandbox troubleshooting guidance](https://learn.chatgpt.com/docs/windows/windows-sandbox).
