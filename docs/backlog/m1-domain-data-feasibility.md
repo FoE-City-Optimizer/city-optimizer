@@ -1,8 +1,8 @@
 # M1 — Domain & Data Feasibility
 
-**Status:** In progress; source inventory and a narrow Google Chrome boundary proof exist, but the fixture, domain policy, and Snapshot v1 gates remain open. **Planning date:** 2026-09-23. **Evidence review:** 2026-09-25.
+**Status:** In progress. The five research issues are closed, but all three outcome Epics and the milestone remain open. The [2026-09-25 exit review](m1-exit-review-2026-09-25.md) and [M2 kickoff](m2-kickoff-2026-09-25.md) are the current sequencing decisions; the evidence review below records the earlier #3/#23 state. **Planning date:** 2026-09-23.
 
-## Evidence review and browser scope (2026-09-25)
+## Earlier evidence review and browser scope (2026-09-25, before #24–#26 merged)
 
 The merged [#3 report](../research/issue-3-main-city-data-sources.md) and [#23 report](../research/issue-23-browser-observation-boundary.md) are the current evidence. #3 observed one authorized main city on one world: a `/game/json` startup city map, a metadata lookup covering all 154 distinct placed entity keys, 418 placed entries, 124 street entries, one Town Hall, and a 25-entry partial refresh after an owner-performed road move and reversal. The game asset name was recorded, but the game build was not established. Omitted coordinates, absent street requirements, blocked-area meaning, special/off-grid entities, other update classes, and a second city or build remain unverified. The response-stage research filter briefly stalled loading and is not a production mechanism.
 
