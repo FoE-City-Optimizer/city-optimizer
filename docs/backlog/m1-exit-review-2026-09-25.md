@@ -2,6 +2,8 @@
 
 **Decision:** M1 is not complete, but it does not block starting bounded M2 solver work. The five M1 research issues are closed; all three outcome Epics remain open. The [M2 kickoff](m2-kickoff-2026-09-25.md) separates an experimental solver model and a visible city prototype from later real-city validity and production integration claims.
 
+**2026-09-26 update:** [#40](https://github.com/FoE-City-Optimizer/city-optimizer/issues/40) is closed after producing a partial fixture viewer and an uninstalled Chrome probe. The owner's comparison found the interior and all roads convincing but substantial edge omissions. The [edge-layout reconciliation plan](m1-edge-layout-reconciliation.md) is the current focused M1 queue.
+
 ## Evidence and remaining M1 outcomes
 
 GitHub and Project #1 were checked on 2026-09-25. [#3](https://github.com/FoE-City-Optimizer/city-optimizer/issues/3), [#23](https://github.com/FoE-City-Optimizer/city-optimizer/issues/23), [#24](https://github.com/FoE-City-Optimizer/city-optimizer/issues/24), [#25](https://github.com/FoE-City-Optimizer/city-optimizer/issues/25), and [#26](https://github.com/FoE-City-Optimizer/city-optimizer/issues/26) are Closed/Done after merged PRs [#28](https://github.com/FoE-City-Optimizer/city-optimizer/pull/28), [#32](https://github.com/FoE-City-Optimizer/city-optimizer/pull/32), [#37](https://github.com/FoE-City-Optimizer/city-optimizer/pull/37), [#38](https://github.com/FoE-City-Optimizer/city-optimizer/pull/38), and [#39](https://github.com/FoE-City-Optimizer/city-optimizer/pull/39). The milestone has three open Epics and five closed research issues.
