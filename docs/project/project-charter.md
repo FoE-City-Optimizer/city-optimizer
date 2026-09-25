@@ -6,7 +6,7 @@
 **Date:** 2026-09-23  
 **Project model:** Open Source, AI-first development  
 **Primary objective:** mathematically optimize the layout of an existing Forge of Empires city  
-**Initial scope:** main city, currently placed buildings, single-tile roads, Chrome/Chromium + Firefox
+**Initial scope:** main city, currently placed buildings, single-tile roads, Google Chrome first; other Chromium browsers and Firefox deferred pending live verification
 
 ---
 
@@ -30,7 +30,7 @@ The following decisions are considered baseline assumptions for the project unle
 |---|---|
 | System shape | Two-part user-facing system: read-only browser extension + separate planner/web application, backed by backend services |
 | Optimization execution | Server-side, asynchronous, long-running jobs |
-| Browser support | Chrome/Chromium and Firefox first |
+| Browser support | Google Chrome for initial delivery; other Chromium browsers and Firefox after separate live verification |
 | Frontend language | TypeScript |
 | Planner UI | React or equivalent modern component framework |
 | Game integration | Strictly read-only; no gameplay automation |
@@ -306,13 +306,9 @@ It does not contain optimization logic.
 
 ### 10.2 Browser support
 
-Initial targets:
+The initial delivery targets Google Chrome. Other Chromium browsers and Firefox remain future targets that require their own live acquisition and compatibility evidence before support is claimed. The 2026-09-25 [M1 evidence review](../backlog/m1-domain-data-feasibility.md) records the scope decision and its limits; the Firefox research access blocker is not an incompatibility finding.
 
-- Google Chrome,
-- Chromium-compatible browsers where no substantial additional work is required,
-- Firefox.
-
-A WebExtensions / Manifest V3-compatible architecture should be preferred.
+A WebExtensions / Manifest V3-compatible architecture should be preferred where it does not weaken the verified Chrome path or read-only privacy boundary. The framework choice remains open under proposed ADR-013.
 
 ### 10.3 Data collection design
 
@@ -1142,7 +1138,7 @@ Add:
 
 MVP is complete when a user can:
 
-1. install the Chrome/Chromium or Firefox extension,
+1. install the Google Chrome extension,
 2. open their own main city in Forge of Empires,
 3. obtain a valid city snapshot without manually entering every building,
 4. open the planner,
@@ -1226,3 +1222,4 @@ The project should continue to verify live game mechanics and integration assump
 - GitHub Actions secure-use documentation: https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
 
 Game mechanics and external APIs are dependencies, not assumptions. Material rules should be captured in project-owned domain documentation and supported by reproducible fixtures/tests wherever practical.
+
