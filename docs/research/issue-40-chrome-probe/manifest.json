@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "FoE Issue 40 Read-only City Probe (Temporary)",
+  "version": "0.0.1",
+  "description": "Disposable local observation of selected city counts on one authorized world.",
+  "content_scripts": [
+    {
+      "matches": ["https://pl4.forgeofempires.com/game/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": ["https://pl4.forgeofempires.com/game/*"],
+      "js": ["main.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ]
+}
