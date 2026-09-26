@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node check.mjs"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "json-schema-to-typescript": "16.0.0",
+    "zod": "4.6.5"
+  }
+}

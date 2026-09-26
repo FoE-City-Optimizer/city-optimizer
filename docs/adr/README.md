@@ -17,3 +17,4 @@
 - [ADR-013: Extension framework choice](013-extension-framework.md) — Proposed
 - [ADR-014: Backend framework choice](014-backend-framework.md) — Proposed
 - [ADR-015: Job progress transport](015-progress-transport.md) — Proposed
+- [ADR-016: Snapshot schema authority and compatibility](016-snapshot-authority-proposal.md) — Proposed

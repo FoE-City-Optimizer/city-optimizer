@@ -1,0 +1,184 @@
+[
+  {
+    "name": "minimal",
+    "valid": true,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "double-is-syntax-valid",
+    "valid": true,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "DOUBLE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "future-version",
+    "valid": false,
+    "value": {
+      "schemaVersion": "1.1",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "missing-coordinate",
+    "valid": false,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "extra-property",
+    "valid": false,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE",
+          "secret": "x"
+        }
+      ]
+    }
+  },
+  {
+    "name": "fractional-coordinate",
+    "valid": false,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0.5,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "zero-width",
+    "valid": false,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0,
+          "y": 1,
+          "width": 0,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "unknown-road",
+    "valid": false,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "TRIPLE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "empty-instances",
+    "valid": false,
+    "value": { "schemaVersion": "1.0", "instances": [] }
+  },
+  {
+    "name": "too-many-instances",
+    "valid": false,
+    "value": {
+      "schemaVersion": "1.0",
+      "instances": [
+        {
+          "id": "i1",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        },
+        {
+          "id": "i2",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        },
+        {
+          "id": "i3",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        },
+        {
+          "id": "i4",
+          "x": 0,
+          "y": 1,
+          "width": 1,
+          "height": 2,
+          "roadRequirement": "SINGLE"
+        }
+      ]
+    }
+  }
+]
