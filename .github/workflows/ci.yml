@@ -19,6 +19,10 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.8.22"
+      - run: node tests/city-geometry-cases.mjs | uv run --project tests/conformance --locked --python 3.12 python tests/conformance/validate.py
   python:
     runs-on: ubuntu-latest
     defaults:

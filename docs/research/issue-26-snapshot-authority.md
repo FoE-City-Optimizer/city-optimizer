@@ -1,6 +1,6 @@
 # Issue #26 — Snapshot v1 schema authority and compatibility research
 
-**Status:** Research conclusion, 2026-09-25. **Confidence:** high for reviewed replay facts and the narrow local conformance result; medium for JSON Schema-first as the preferred authority; low for unresolved game-source semantics. This is a candidate contract and [proposed ADR-016](../adr/016-snapshot-authority-proposal.md), not a final Snapshot v1 or an accepted decision.
+**Status:** Research conclusion, 2026-09-25. **Confidence:** high for reviewed replay facts and the narrow local conformance result; medium for JSON Schema-first as the preferred authority; low for unresolved game-source semantics. This is a candidate contract and [proposed ADR-016](../adr/016-snapshot-authority.md), not a final Snapshot v1 or an accepted decision.
 
 ## A–B. Question and conclusion
 

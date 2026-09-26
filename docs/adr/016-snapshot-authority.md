@@ -1,6 +1,6 @@
-# ADR-016: Snapshot schema authority and compatibility (proposal)
+# ADR-016: Snapshot schema authority and compatibility
 
-**Status:** Proposed. **Issue:** [#26](https://github.com/FoE-City-Optimizer/city-optimizer/issues/26). **Governing decision:** [ADR-005](005-snapshot.md), Accepted. This proposal does not finalize Snapshot v1.
+**Status:** Accepted for schema authority, 2026-09-26, by owner decision during [#48](https://github.com/FoE-City-Optimizer/city-optimizer/issues/48). **Originating issue:** [#26](https://github.com/FoE-City-Optimizer/city-optimizer/issues/26). **Governing decision:** [ADR-005](005-snapshot.md), Accepted. This decision does not finalize Snapshot v1.
 
 ## Context
 
@@ -8,7 +8,7 @@ ADR-005 requires one authority for a project-owned versioned snapshot and valida
 
 The [#26 comparison](../research/issue-26-snapshot-authority.md) exercised a small synthetic shape through JSON Schema Draft 2020-12 with Ajv 8.20.0 and Python jsonschema 4.26.0, TypeScript-first Zod 4.6.5 with generated JSON Schema, and manual validators. All six paths agreed on ten syntax cases. That narrow agreement does not prove complete generator semantics or domain correctness. JSON Schema to TypeScript 16.0.0 generated a declaration; its `maxItems: 3` became a union of fixed tuples, a concrete readability cost.
 
-## Proposed decision
+## Decision
 
 1. Make a reviewed JSON Schema Draft 2020-12 document in `packages/contracts` the **single wire-shape authority**. Generate TypeScript declarations from it; use Ajv's Draft 2020-12 validator on TypeScript boundaries and `jsonschema.Draft202012Validator` on Python boundaries. Pin exact tool versions and lockfiles, validate the schema itself, check generated output for drift, and run one shared positive/negative fixture corpus through both runtimes. Generated types alone never certify untrusted input.
 2. Keep domain compilation separate from schema validation. A structurally valid `DOUBLE` value, unresolved diagnostic, duplicate ID, bad root count, overlap, or uncertain source mapping can still make a city ineligible. The compiler must emit bounded stable diagnostic codes, never raw values. Solver input is a different, smaller validated type.
@@ -27,4 +27,4 @@ The [#26 comparison](../research/issue-26-snapshot-authority.md) exercised a sma
 
 ## Consequences and proof gates
 
-This proposal adds a schema/generator maintenance and cross-runtime CI obligation. It does not authorize a production schema, collector, API job, or solver feature. Architecture & Planning must accept or revise this ADR and coordinate eligibility/claims with proposed [ADR-011](011-special-buildings.md). Before calling Snapshot v1 final, establish omitted-coordinate, available/blocked, road-demand, Town Hall, and unsupported-mechanic semantics, settle bounded metadata/diagnostics and resource limits, and demonstrate TS/Python conformance on the full reviewed contract. Issue #23 is closed, but its merged narrow Chrome probe does not supply the complete acquisition/update and message-boundary evidence required by open Epic #2; that proof and a design-specific Security & Privacy review remain prerequisites to production collector refinement.
+This decision adds a schema/generator maintenance and cross-runtime CI obligation. It does not authorize a production Snapshot v1, collector, API job, or solver feature. The #48 reviewed geometry intermediate uses this authority and shared conformance cases. Coordinate evidence is separately scoped by [ADR-017](017-current-city-coordinate-mapping.md). Before calling Snapshot v1 final, establish available/blocked, road-demand, Town Hall, and unsupported-mechanic semantics, settle bounded metadata/diagnostics and resource limits, and demonstrate TS/Python conformance on the full final contract. Issue #23 is closed, but its merged narrow Chrome probe does not supply the complete acquisition/update and message-boundary evidence required by open Epic #2; that proof and a design-specific Security & Privacy review remain prerequisites to production collector refinement.
