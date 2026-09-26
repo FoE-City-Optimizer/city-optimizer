@@ -6,12 +6,16 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    }
+    },
+    "./city-geometry.schema.json": "./dist/city-geometry.schema.json"
   },
   "scripts": {
     "build": "tsc -b",
     "typecheck": "tsc -b"
   },
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "ajv": "8.20.0"
+  }
 }

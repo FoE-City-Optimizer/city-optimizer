@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:foe-city-optimizer:city-geometry:0.1",
+  "title": "CityGeometryDraft",
+  "description": "Issue #48 geometry-only intermediate for the approved #24 source projection; not Canonical City Snapshot v1 or solver input.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "sourceVariant",
+    "axisConvention",
+    "ordinaryInstances",
+    "unlockedRectangles",
+    "blockedRecords",
+    "excludedCounts",
+    "counts",
+    "diagnostics"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "0.1" },
+    "sourceVariant": { "const": "foe24-source-v2" },
+    "axisConvention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "xIncreases", "yIncreases"],
+      "properties": {
+        "unit": { "const": "city-grid-cell" },
+        "xIncreases": { "const": "east" },
+        "yIncreases": { "const": "south" }
+      }
+    },
+    "ordinaryInstances": {
+      "type": "array",
+      "minItems": 399,
+      "maxItems": 399,
+      "items": { "$ref": "#/$defs/instance" }
+    },
+    "unlockedRectangles": {
+      "type": "array",
+      "minItems": 234,
+      "maxItems": 234,
+      "items": { "$ref": "#/$defs/rectangle" }
+    },
+    "blockedRecords": {
+      "type": "array",
+      "minItems": 49,
+      "maxItems": 49,
+      "items": { "$ref": "#/$defs/blocked" }
+    },
+    "excludedCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "friends_tavern",
+        "hub_main",
+        "hub_part",
+        "off_grid",
+        "outpost_ship"
+      ],
+      "properties": {
+        "friends_tavern": { "type": "integer", "minimum": 0, "maximum": 419 },
+        "hub_main": { "type": "integer", "minimum": 0, "maximum": 419 },
+        "hub_part": { "type": "integer", "minimum": 0, "maximum": 419 },
+        "off_grid": { "type": "integer", "minimum": 0, "maximum": 419 },
+        "outpost_ship": { "type": "integer", "minimum": 0, "maximum": 419 }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceRecords",
+        "ordinaryInstances",
+        "unlockedRectangles",
+        "roads",
+        "excludedRecords",
+        "availableCells",
+        "occupiedCells",
+        "freeCells"
+      ],
+      "properties": {
+        "sourceRecords": { "const": 419 },
+        "ordinaryInstances": { "const": 399 },
+        "unlockedRectangles": { "const": 234 },
+        "roads": { "const": 124 },
+        "excludedRecords": { "const": 20 },
+        "availableCells": { "type": "integer", "minimum": 0, "maximum": 65536 },
+        "occupiedCells": { "type": "integer", "minimum": 0, "maximum": 65536 },
+        "freeCells": { "type": "integer", "minimum": 0, "maximum": 65536 }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "BLOCKED_MEANING_UNRESOLVED",
+          "ROAD_DEMAND_UNRESOLVED",
+          "SPECIAL_ELIGIBILITY_UNRESOLVED"
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "presence": { "enum": ["explicit", "omitted-zero"] },
+    "coordinate": { "type": "integer", "minimum": 0, "maximum": 255 },
+    "extent": { "type": "integer", "minimum": 1, "maximum": 255 },
+    "instance": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "xPresence": { "const": "omitted-zero" } } },
+          "then": { "properties": { "x": { "const": 0 } } }
+        },
+        {
+          "if": { "properties": { "yPresence": { "const": "omitted-zero" } } },
+          "then": { "properties": { "y": { "const": 0 } } }
+        }
+      ],
+      "required": [
+        "instance",
+        "entity",
+        "type",
+        "x",
+        "y",
+        "width",
+        "height",
+        "xPresence",
+        "yPresence"
+      ],
+      "properties": {
+        "instance": { "type": "string", "pattern": "^instance-[0-9]{6}$" },
+        "entity": { "type": "string", "pattern": "^entity-[0-9]{6}$" },
+        "type": {
+          "enum": [
+            "generic_building",
+            "greatbuilding",
+            "main_building",
+            "military",
+            "street"
+          ]
+        },
+        "x": { "$ref": "#/$defs/coordinate" },
+        "y": { "$ref": "#/$defs/coordinate" },
+        "width": { "$ref": "#/$defs/extent" },
+        "height": { "$ref": "#/$defs/extent" },
+        "xPresence": { "$ref": "#/$defs/presence" },
+        "yPresence": { "$ref": "#/$defs/presence" }
+      }
+    },
+    "rectangle": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "xPresence": { "const": "omitted-zero" } } },
+          "then": { "properties": { "x": { "const": 0 } } }
+        },
+        {
+          "if": { "properties": { "yPresence": { "const": "omitted-zero" } } },
+          "then": { "properties": { "y": { "const": 0 } } }
+        }
+      ],
+      "required": ["x", "y", "width", "length", "xPresence", "yPresence"],
+      "properties": {
+        "x": { "$ref": "#/$defs/coordinate" },
+        "y": { "$ref": "#/$defs/coordinate" },
+        "width": { "$ref": "#/$defs/extent" },
+        "length": { "$ref": "#/$defs/extent" },
+        "xPresence": { "$ref": "#/$defs/presence" },
+        "yPresence": { "$ref": "#/$defs/presence" }
+      }
+    },
+    "blocked": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "xPresent": { "const": true } } },
+          "then": { "properties": { "x": {} }, "required": ["x"] },
+          "else": { "not": { "required": ["x"] } }
+        },
+        {
+          "if": { "properties": { "yPresent": { "const": true } } },
+          "then": { "properties": { "y": {} }, "required": ["y"] },
+          "else": { "not": { "required": ["y"] } }
+        }
+      ],
+      "required": ["xPresent", "yPresent", "meaning"],
+      "properties": {
+        "xPresent": { "type": "boolean" },
+        "yPresent": { "type": "boolean" },
+        "x": { "$ref": "#/$defs/coordinate" },
+        "y": { "$ref": "#/$defs/coordinate" },
+        "meaning": { "const": "unresolved" }
+      }
+    }
+  }
+}

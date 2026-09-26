@@ -13,5 +13,8 @@
     "typecheck": "tsc -b"
   },
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@foe/contracts": "workspace:*"
+  }
 }
